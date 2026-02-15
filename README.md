@@ -6,9 +6,16 @@ This repository contains my personal NixOS configuration powered by **KDE Plasma
 * `flake.nix` — System entry point, defines inputs and package versions.
 * `configuration.nix` — System-wide settings (bootloader, services, drivers).
 * `home.nix` — Home Manager configuration (user packages, git, dotfiles).
-* `hardware-configuration.nix` — Hardware-specific profile generated for this device.
+ device.
 * `modules/` & `user-configs/` — Modularized configs for cleaner organization.
 
+### ⚠️ Important: Hardware Configuration
+The file `hardware-configuration.nix` is **not** meant to be shared across different machines. It is automatically generated during the NixOS installation process based on the specific hardware (CPU, GPU, disk UUIDs, partitions) of the device.
+
+If you are replicating this setup on a new machine, you should:
+1. Generate your own hardware config:
+   ```bash
+   nixos-generate-config --show-hardware-config > hardware-configuration.nix
 ---
 
 ## 🌡️ Thermal Optimization (TLP)
