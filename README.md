@@ -1,23 +1,23 @@
 # ❄️ NixOS Plasma - Dotfiles (Flake Edition)
 
-Ovaj repozitorijum sadrži moju ličnu NixOS konfiguraciju baziranu na **KDE Plasma 6** okruženju. Sistem je deterministički konfigurisan pomoću **Flakes-a** i optimizovan za rad na laptopu, sa fokusom na maksimalnu kontrolu temperature i stabilnost.
+This repository contains my personal NixOS configuration powered by **KDE Plasma 6**. It is built using **Nix Flakes** for a deterministic and reproducible system, specifically optimized for laptop stability and thermal efficiency.
 
-## 📂 Struktura fajlova
-* `flake.nix` — Ulazna tačka sistema, definiše izvore (inputs) i verzije paketa.
-* `configuration.nix` — Sistemska podešavanja (bootloader, servisi, drajveri).
-* `home.nix` — Home Manager (podešavanja korisničkog okruženja, Git, aplikacije).
-* `hardware-configuration.nix` — Hardverski profil specifičan za ovaj laptop.
-* `modules/` & `user-configs/` — Modularni delovi za lakše održavanje sistema.
+## 📂 File Structure
+* `flake.nix` — System entry point, defines inputs and package versions.
+* `configuration.nix` — System-wide settings (bootloader, services, drivers).
+* `home.nix` — Home Manager configuration (user packages, git, dotfiles).
+* `hardware-configuration.nix` — Hardware-specific profile generated for this device.
+* `modules/` & `user-configs/` — Modularized configs for cleaner organization.
 
 ---
 
-## 🌡️ Termalna Optimizacija (TLP)
-Za biznis laptopove, TLP je konfigurisan da strogo kontroliše rad procesora:
+## 🌡️ Thermal Optimization (TLP)
+To prevent overheating and extend battery life, **TLP** is strictly configured to manage CPU performance:
 
-* **Na punjaču (AC):** CPU iskoristivost ograničena na **81%**.
-* **Na bateriji (BAT):** CPU iskoristivost ograničena na **60%**.
-* **Turbo Boost:** Potpuno **isključen** kako bi se izbegli termalni skokovi i buka ventilatora.
+* **On AC (Charger):** CPU performance limited to **81%**.
+* **On Battery:** CPU performance limited to **60%**.
+* **Turbo Boost:** Completely **Disabled** to prevent temperature spikes and reduce fan noise.
 
-Status optimizacije možeš proveriti komandom:
+You can verify the current TLP status with:
 ```bash
 sudo tlp-stat -p
