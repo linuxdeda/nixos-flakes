@@ -39,11 +39,11 @@ The file `hardware-configuration.nix` is **not** meant to be shared. It is uniqu
    git clone [https://github.com/linuxdeda/nixos-flakes.git](https://github.com/linuxdeda/nixos-flakes.git)
 
 2. Generate your hardware config:  
-
+   ```bash
    nixos-generate-config --show-hardware-config > hardware-configuration.nix
    
 3. Run:
-
+   ```bash
    doas nixos-rebuild switch --flake .#nixos
 
 ---
@@ -100,7 +100,7 @@ Fajl `hardware-configuration.nix` **nije** namenjen deljenju. On je jedinstven z
    ```bash
    nixos-generate-config --show-hardware-config > hardware-configuration.nix
 
-3.Pokreni:
-
-doas nixos-rebuild switch --flake .#nixos
+3. Pokreni:
+   ```bash
+   doas nixos-rebuild switch --flake .#nixos
    
