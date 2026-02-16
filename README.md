@@ -96,9 +96,9 @@ Fajl `hardware-configuration.nix` **nije** namenjen deljenju. On je jedinstven z
    ```bash
    git clone [https://github.com/linuxdeda/nixos-flakes.git](https://github.com/linuxdeda/nixos-flakes.git)
 
-2.Generiši svoj hardverski config:
-
-nixos-generate-config --show-hardware-config > hardware-configuration.nix
+2. Generiši svoj hardverski config:
+   ```bash
+   nixos-generate-config --show-hardware-config > hardware-configuration.nix
 
 3.Pokreni:
 
