@@ -92,9 +92,9 @@ Posebno podešeno za Intel 13. generaciju (i5-1334U):
 Fajl `hardware-configuration.nix` **nije** namenjen deljenju. On je jedinstven za vaš hardver.
 
 
-1.Kloniraj ovaj repo:
-
-git clone [https://github.com/linuxdeda/nixos-flakes.git](https://github.com/linuxdeda/nixos-flakes.git)
+1. Kloniraj ovaj repo:
+   ```bash
+   git clone [https://github.com/linuxdeda/nixos-flakes.git](https://github.com/linuxdeda/nixos-flakes.git)
 
 2.Generiši svoj hardverski config:
 
