@@ -91,15 +91,20 @@ Posebno podešeno za Intel 13. generaciju (i5-1334U):
 ### ⚠️ Važno: Konfiguracija hardvera
 Fajl `hardware-configuration.nix` **nije** namenjen deljenju. On je jedinstven za vaš hardver.
 
-1.  Kloniraj ovaj repo:
-   ```bash
-   git clone [https://github.com/linuxdeda/nixos-flakes.git](https://github.com/linuxdeda/nixos-flakes.git)
+## 🚀 Kako primeniti
 
-2. Generiši svoj hardverski config:  
+### ⚠️ Važno: Konfiguracija hardvera
+Fajl `hardware-configuration.nix` **nije** namenjen deljenju. On je jedinstven za vaš hardver.
 
-  nixos-generate-config --show-hardware-config > hardware-configuration.nix
-   
+1. Kloniraj ovaj repo:
+```bash
+git clone [https://github.com/linuxdeda/nixos-flakes.git](https://github.com/linuxdeda/nixos-flakes.git)
+
+2. Generiši svoj hardverski config:
+```bash
+nixos-generate-config --show-hardware-config > hardware-configuration.nix
+
 3. Pokreni:
-
-  doas nixos-rebuild switch --flake .#nixos
+```bash
+doas nixos-rebuild switch --flake .#nixos
    
