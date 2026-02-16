@@ -28,6 +28,24 @@ Specifically tuned for Intel 13th Gen (i5-1334U):
 * **Battery Performance:** Limited to 60%.
 * **Turbo Boost:** Disabled to prevent spikes and fan noise.
 
+
+## 🚀 How to Apply
+
+### ⚠️ Important: Hardware Configuration
+The file `hardware-configuration.nix` is **not** meant to be shared. It is unique to your machine's UUIDs.
+
+1. Clone this repository:
+   ```bash
+   git clone [https://github.com/linuxdeda/nixos-flakes.git](https://github.com/linuxdeda/nixos-flakes.git)
+
+2. Generate your hardware config:  
+
+   nixos-generate-config --show-hardware-config > hardware-configuration.nix
+   
+3. Run:
+
+   doas nixos-rebuild switch --flake .#nixos
+
 ---
 
 <a name="srpski"></a>
@@ -68,21 +86,20 @@ Posebno podešeno za Intel 13. generaciju (i5-1334U):
 
 ---
 
-## 🚀 How to Apply / Kako primeniti
+## 🚀 Kako primeniti
 
-### ⚠️ Important: Hardware Configuration
-The file `hardware-configuration.nix` is **not** meant to be shared. It is unique to your machine's UUIDs.
+### ⚠️ Važno: Konfiguracija hardvera
 Fajl `hardware-configuration.nix` **nije** namenjen deljenju. On je jedinstven za vaš hardver.
 
-1. Clone this repository / Kloniraj ovaj repo:
+1.  Kloniraj ovaj repo:
    ```bash
    git clone [https://github.com/linuxdeda/nixos-flakes.git](https://github.com/linuxdeda/nixos-flakes.git)
 
-2. Generate your hardware config / Generiši svoj hardverski config:  
+2. Generiši svoj hardverski config:  
 
    nixos-generate-config --show-hardware-config > hardware-configuration.nix
    
-3. Run / Pokreni:
+3. Pokreni:
 
    doas nixos-rebuild switch --flake .#nixos
    
