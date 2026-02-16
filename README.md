@@ -91,10 +91,6 @@ Posebno podešeno za Intel 13. generaciju (i5-1334U):
 ### ⚠️ Važno: Konfiguracija hardvera
 Fajl `hardware-configuration.nix` **nije** namenjen deljenju. On je jedinstven za vaš hardver.
 
-## 🚀 Kako primeniti
-
-### ⚠️ Važno: Konfiguracija hardvera
-Fajl `hardware-configuration.nix` **nije** namenjen deljenju. On je jedinstven za vaš hardver.
 
 1.Kloniraj ovaj repo:
 
