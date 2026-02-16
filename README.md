@@ -96,15 +96,15 @@ Fajl `hardware-configuration.nix` **nije** namenjen deljenju. On je jedinstven z
 ### ⚠️ Važno: Konfiguracija hardvera
 Fajl `hardware-configuration.nix` **nije** namenjen deljenju. On je jedinstven za vaš hardver.
 
-Kloniraj ovaj repo:
+1.Kloniraj ovaj repo:
 
 git clone [https://github.com/linuxdeda/nixos-flakes.git](https://github.com/linuxdeda/nixos-flakes.git)
 
-Generiši svoj hardverski config:
+2.Generiši svoj hardverski config:
 
 nixos-generate-config --show-hardware-config > hardware-configuration.nix
 
-Pokreni:
+3.Pokreni:
 
 doas nixos-rebuild switch --flake .#nixos
    
