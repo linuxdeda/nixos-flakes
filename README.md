@@ -97,9 +97,9 @@ Fajl `hardware-configuration.nix` **nije** namenjen deljenju. On je jedinstven z
 
 2. Generiši svoj hardverski config:  
 
-   nixos-generate-config --show-hardware-config > hardware-configuration.nix
+  nixos-generate-config --show-hardware-config > hardware-configuration.nix
    
 3. Pokreni:
 
-   doas nixos-rebuild switch --flake .#nixos
+  doas nixos-rebuild switch --flake .#nixos
    
