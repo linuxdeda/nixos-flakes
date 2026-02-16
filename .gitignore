@@ -1,0 +1,27 @@
+# Privatni SSH ključevi i sertifikati (NAJVAŽNIJE)
+id_ed25519
+id_ed25519.pub
+id_rsa
+id_rsa.pub
+*.pub
+*.pem
+*.key
+
+# Hardverska konfiguracija (opciono, ali preporučljivo zbog UUID-ova diskova)
+hardware-configuration.nix
+
+# Rezultati Nix build-a
+result
+result-*
+
+# Privremeni fajlovi editora (Nano, Vim, VSCode)
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+.direnv/
+
+# Logovi i sistemski keš
+*.log
+.cache/
