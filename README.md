@@ -36,7 +36,7 @@ The file `hardware-configuration.nix` is **not** meant to be shared. It is uniqu
 
 1. Clone this repository:
    ```bash
-   git clone [https://github.com/linuxdeda/nixos-flakes.git](https://github.com/linuxdeda/nixos-flakes.git)
+   git clone https://github.com/linuxdeda/nixos-flakes.git
 
 2. Generate your hardware config:  
    ```bash
@@ -94,8 +94,8 @@ Fajl `hardware-configuration.nix` **nije** namenjen deljenju. On je jedinstven z
 
 1. Kloniraj ovaj repo:
    ```bash
-   git clone [https://github.com/linuxdeda/nixos-flakes.git](https://github.com/linuxdeda/nixos-flakes.git)
-
+   git clone https://github.com/linuxdeda/nixos-flakes.git
+   
 2. Generiši svoj hardverski config:
    ```bash
    nixos-generate-config --show-hardware-config > hardware-configuration.nix
