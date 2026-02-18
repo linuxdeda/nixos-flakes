@@ -62,7 +62,7 @@ services.tlp = {
       sys-up = "doas nixos-rebuild switch --flake .#nixos";
 
       # Čišćenje sistema (starije od 30 dana + optimizacija)
-      sys-clean = "doas nix-collect-garbage --delete-older-than 30d && doas nix-store --optimise";
+      sys-clean = "doas nix-collect-garbage -d";
 
       # USBGuard prečice
       usb-list = "doas usbguard list-devices";
@@ -88,8 +88,33 @@ services.tlp = {
     vscode
     flatpak
     tlp
+    keepassxc
+    syncthing
+    openvpn
   ];
 
+  networking.networkmanager.plugins = with pkgs; [ networkmanager-openvpn ];
+
+  #Podešavanje syncthing servisa
+  services.syncthing = {
+    enable = true;
+    user = "lxd"; # Obavezno stavi svoj username ovde
+    dataDir = "/home/lxd/Documents";
+    configDir = "/home/lxd/.config/syncthing";
+
+  #Otvaranje portova u firewall-u za lokalnu mrežu
+  overrideDevices = true;     # Dozvoljava Nix-u da upravlja uređajima
+  overrideFolders = true;     # Dozvoljava Nix-u da upravlja folderima
+  };
+
+  #Firefox keepass servis
+  programs.firefox = {
+    enable = true;
+    nativeMessagingHosts.packages = [ pkgs.keepassxc ];
+  };
+
+  #Važno za komunikaciju sa hardverom/browserom
+ services.pcscd.enable = true;
   # Enable Doas
  security.doas.enable = true;
   # Disable Sudo
@@ -117,7 +142,7 @@ services.tlp = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Da bi mogao koristiti doas/sudo
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI..." # OVDE ZALEPI SADRŽAJ .pub FAJLA
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAdMcT6vefOaOG8rqZPvZhndojpq1zXc5c61zTzOKnim moj_nixos_pristup" # OVDE ZALEPI SADRŽAJ .pub FAJLA
     ];
     shell = pkgs.fish;
   };
@@ -157,10 +182,10 @@ services.tlp = {
   #Firewall
   networking.firewall = {
   enable = true;
-  # Dozvoljavaš TCP portove (npr. 80 za HTTP, 443 za HTTPS)
-  allowedTCPPorts = [ 22 80 443 ];
-  # Dozvoljavaš UDP portove (npr. za igrice ili specifične servise)
-  allowedUDPPorts = [ 51820 ]; # Primer za Wireguard VPN
+  # TCP 22000 je za prenos podataka (Syncthing)
+  allowedTCPPorts = [ 22 80 443 22000 ];
+  # UDP 22000 (podaci) i 21027 (lokalno otkrivanje uređaja)
+  allowedUDPPorts = [ 51820 22000 21027 ];
  };
 
   #USBGuard
@@ -171,7 +196,7 @@ services.tlp = {
   # NixOS će dozvoliti uređaje koji su već uštekani tokom boot-a
   # tako da ne ostaneš bez tastature odmah.
   implicitPolicyTarget = "block";
-};
+ };
 
   # Bootloader sa automatskim title sa datumom
   boot.loader.systemd-boot.enable = true;

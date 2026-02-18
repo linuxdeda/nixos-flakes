@@ -12,7 +12,6 @@ in
 
   home.packages = with pkgs; [
     vlc
-    firefox
     libreoffice-qt6-fresh
     gimp
     telegram-desktop
@@ -22,6 +21,8 @@ in
     bazaar
     planify
     megasync
+    veracrypt
+    firefox
   ];
 
   programs.git = {
