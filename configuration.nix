@@ -91,6 +91,7 @@ services.tlp = {
     keepassxc
     syncthing
     openvpn
+    (python3.withPackages (ps: [ ps.pip ]))
   ];
 
   networking.networkmanager.plugins = with pkgs; [ networkmanager-openvpn ];
