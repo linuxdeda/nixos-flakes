@@ -12,6 +12,7 @@
     kdePackages.partitionmanager
     kdePackages.kcalc
     kdePackages.kdenlive
+    kdePackages.sddm-kcm    
   ];
 
   services.pulseaudio.enable = false;

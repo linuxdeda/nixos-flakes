@@ -143,7 +143,7 @@ services.tlp = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Da bi mogao koristiti doas/sudo
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAdMcT6vefOaOG8rqZPvZhndojpq1zXc5c61zTzOKnim moj_nixos_pristup" # OVDE ZALEPI SADRŽAJ .pub FAJLA
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPGfBlKAGH48mTAZApdv+l2luQfkJIKmwt6IRRyGMfa2 linuxdeda@gmail.com" # OVDE ZALEPI SADRŽAJ .pub FAJLA
     ];
     shell = pkgs.fish;
   };
@@ -187,7 +187,17 @@ services.tlp = {
   allowedTCPPorts = [ 22 80 443 22000 ];
   # UDP 22000 (podaci) i 21027 (lokalno otkrivanje uređaja)
   allowedUDPPorts = [ 51820 22000 21027 ];
+  
+  #Otvaranje portova za Chrome Cast (1)  
+  extraCommands = ''
+    iptables -A nixos-fw -p udp -d 224.0.0.0/4 -j nixos-fw-accept
+    iptables -A nixos-fw -p udp -s 224.0.0.0/4 -j nixos-fw-accept
+  '';
+  allowedUDPPortRanges = [{ from = 32768; to = 60999; }];
+
  };
+ 
+  services.avahi.enable = true;  #(1)
 
   #USBGuard
   services.usbguard = {
