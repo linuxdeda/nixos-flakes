@@ -7,7 +7,7 @@
 
   environment.systemPackages = with pkgs; [
     kdePackages.dolphin
-    kdePackages.dolphin
+    kdePackages.kpmcore
     kdePackages.ktorrent
     kdePackages.partitionmanager
     kdePackages.kcalc

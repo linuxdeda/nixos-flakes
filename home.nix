@@ -22,6 +22,7 @@ in
     megasync
     veracrypt
     firefox
+    google-chrome
     obsidian
   ];
 
