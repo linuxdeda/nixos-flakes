@@ -28,28 +28,25 @@ services.power-profiles-daemon.enable = false;
 services.tlp = {
   enable = true;
   settings = {
-    # 1. STOP TURBO BOOST (Za tvojih 4.6GHz skokova)
-    CPU_BOOST_ON_AC = 0;
-    CPU_BOOST_ON_BAT = 0;
-    CPU_HWP_DYN_BOOST_ON_AC = 0;
-    CPU_HWP_DYN_BOOST_ON_BAT = 0;
-
-    # 2. INTEL P-STATE (Limitiranje maksimalne frekvencije)
-    # i5-1334U ima osnovni takt oko 1.3GHz.
-    # Sa 70% limitom, on će raditi stabilno i hladno.
-    CPU_MAX_PERF_ON_AC = 81;
-    CPU_MAX_PERF_ON_BAT = 60;
-
-    # 3. ENERGY PERFORMANCE PREFERENCE (EPP)
-    # Ovo je najbitnije za Intel 13. gen "U" seriju.
-    # 'power' tera procesor da favorizuje 8 E-jezgara umesto 2 P-jezgra.
-    CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
-    CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-
-    # 4. TERMALNI MENADŽMENT
-    # Sprečava nagle skokove temperature koji pale ventilator.
-    PLATFORM_PROFILE_ON_AC = "balanced";
-    PLATFORM_PROFILE_ON_BAT = "low-power";
+    CPU_BOOST_ON_AC=1;
+    CPU_BOOST_ON_BAT=1;
+    CPU_HWP_DYN_BOOST_ON_AC=0;
+    CPU_HWP_DYN_BOOST_ON_BAT=0;
+    CPU_SCALING_MAX_FREQ_ON_AC=3200000;
+    CPU_SCALING_MAX_FREQ_ON_BAT=2200000;
+    CPU_SCALING_MIN_FREQ_ON_AC=400000;
+    CPU_SCALING_MIN_FREQ_ON_BAT=400000;
+    CPU_ENERGY_PERF_POLICY_ON_AC= "balance_performance";
+    CPU_ENERGY_PERF_POLICY_ON_BAT= "balance_power";
+    CPU_MIN_PERF_ON_AC=10;
+    CPU_MIN_PERF_ON_BAT=20;
+    CPU_MAX_PERF_ON_AC=100;
+    CPU_MAX_PERF_ON_BAT=60;
+    PLATFORM_PROFILE_ON_AC= "balanced";
+    PLATFORM_PROFILE_ON_BAT= "quiet";
+    START_CHARGE_THRESH_BAT0=70;
+    STOP_CHARGE_THRESH_BAT0=80;
+    DISK_APM_LEVEL_ON_AC="254 254";
   };
 };
 
