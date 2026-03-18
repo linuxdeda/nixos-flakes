@@ -17,12 +17,12 @@ in
     telegram-desktop
     hardinfo2
     alacritty
-    thunderbird
     bazaar
     planify
     megasync
     veracrypt
     firefox
+    obsidian
   ];
 
   programs.git = {
