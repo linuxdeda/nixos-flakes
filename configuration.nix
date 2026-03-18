@@ -143,7 +143,7 @@ services.tlp = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Da bi mogao koristiti doas/sudo
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPGfBlKAGH48mTAZApdv+l2luQfkJIKmwt6IRRyGMfa2 linuxdeda@gmail.com" # OVDE ZALEPI SADRŽAJ .pub FAJLA
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP............ linuxdeda@gmail.com" # OVDE ZALEPI SADRŽAJ .pub FAJLA
     ];
     shell = pkgs.fish;
   };
