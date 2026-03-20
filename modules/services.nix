@@ -27,6 +27,11 @@
   services.flatpak.enable = true;
   # (1)
   services.avahi.enable = true;
+  
+  #Nepotreban Gnome softver
+  services.gnome.core-apps.enable = false;
+  services.gnome.core-developer-tools.enable = false;
+  services.gnome.games.enable = false;
 
 services.tlp = {
   enable = true;
