@@ -16,6 +16,10 @@
     gnome-shell
     gnomeExtensions.appindicator
     gnome-clocks
+    gnomeExtensions.arcmenu
+    evince
+    eog
+    youtube-music
   ];
 
 }
