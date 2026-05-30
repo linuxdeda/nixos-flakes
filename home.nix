@@ -12,7 +12,7 @@ in
 
   home.packages = with pkgs; [
     vlc
-    libreoffice-qt6-fresh
+    libreoffice
     gimp
     telegram-desktop
     hardinfo2
@@ -35,6 +35,6 @@ in
   # Linkovanje sopstvenih konfiguracija
   home.file.".config/kitty/kitty.conf".source = "${cfgDir}/kitty.conf";
 
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 }
 

@@ -118,6 +118,6 @@ in
   nix.settings.auto-optimise-store = true;
 
   # Verzija sistema
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 }
 
