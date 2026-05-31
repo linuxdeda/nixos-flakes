@@ -12,9 +12,12 @@ in
   # Uvoz modula
   imports = [
     ./modules/services.nix
-    ./modules/desktop/plasma.nix
+    ./modules/desktop/gnome.nix
     ./hardware-configuration.nix
   ];
+  
+  # Omogućavanje flakes i nove nix komande trajno
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Osnovna konfiguracija
   networking.hostName = "nixos";
@@ -36,7 +39,6 @@ in
     vscode
     flatpak
     tlp
-    keepassxc
     syncthing
     openvpn
     (python3.withPackages (ps: [ ps.pip ]))

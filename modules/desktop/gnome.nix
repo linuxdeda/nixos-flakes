@@ -8,7 +8,6 @@
   environment.systemPackages = with pkgs; [
     nautilus
     gnome-tweaks
-    gnome-software
     gnome-disk-utility
     gnome-calculator
     gnome-system-monitor
@@ -16,10 +15,10 @@
     gnome-shell
     gnomeExtensions.appindicator
     gnome-clocks
-    gnomeExtensions.arcmenu
+    gnome-text-editor
     evince
     eog
-    youtube-music
+    pear-desktop
   ];
 
 }

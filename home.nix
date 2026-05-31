@@ -18,10 +18,8 @@ in
     hardinfo2
     alacritty
     bazaar
-    planify
     megasync
     veracrypt
-    firefox
     google-chrome
     obsidian
   ];
