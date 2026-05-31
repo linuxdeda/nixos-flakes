@@ -81,20 +81,18 @@ services.tlp = {
 
    #Privatnost DNS upita (DNS over TLS)
   services.resolved = {
-   enable = true;
-   dnssec = "true";
-   domains = [ "~." ]; # Koristi ove DNS servere za sve domene
-   fallbackDns = [ "1.1.1.1" "9.9.9.9" ];
+    enable = true;
+    settings = {
+      Resolve = {
+        DNS = [ "1.1.1.1" "9.9.9.9" ];
+        FallbackDNS = [ "8.8.8.8" ];
+        Domains = [ "~." ]; # Koristi ove DNS servere za sve domene
+        DNSSEC = "true";
+        DNSOverTLS = "true"; # Ako želiš pun DNS over TLS efekat
+        };
+    };
  };
   # Govorimo sistemu da koristi lokalni resolver koji je prethodno podešen
   networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
-
-  #Podešavanje syncthing servisa
-  services.syncthing = {
-    enable = true;
-    user = "lxd"; # Obavezno stavi svoj username ovde
-    dataDir = "/home/lxd/Documents";
-    configDir = "/home/lxd/.config/syncthing";
-};
 
 }
