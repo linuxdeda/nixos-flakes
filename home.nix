@@ -16,10 +16,8 @@ in
     gimp
     telegram-desktop
     hardinfo2
-    alacritty
+    ghostty
     bazaar
-    megasync
-    veracrypt
     google-chrome
     obsidian
   ];

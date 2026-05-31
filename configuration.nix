@@ -39,18 +39,11 @@ in
     vscode
     flatpak
     tlp
-    syncthing
     openvpn
     (python3.withPackages (ps: [ ps.pip ]))
   ];
 
   networking.networkmanager.plugins = with pkgs; [ networkmanager-openvpn ];
-
-  #Firefox keepass servis
-  programs.firefox = {
-    enable = true;
-    nativeMessagingHosts.packages = [ pkgs.keepassxc ];
-  };
 
   # Pravila ko sme da postane "admin"
  security.doas.extraRules = [{
@@ -67,26 +60,6 @@ in
       "ssh-ed25519 AAAAC3NzaC1l*-**/*--........email.com" # OVDE ZALEPI SADRŽAJ .pub FAJLA
     ];
     shell = pkgs.fish;
-  };
-
-
-  # Firejail konfiguracija - Sandboxing aplikacija
-  programs.firejail = {
-    enable = true;
-    wrappedBinaries = {
-      # Firefox
-      firefox = {
-        executable = "${pkgs.firefox}/bin/firefox";
-        profile = "${pkgs.firejail}/etc/firejail/firefox.profile";
-      };
-
-      # Telegram sa dodatnim dozvolama za folder Preuzimanja
-      telegram-desktop = {
-        executable = "${pkgs.telegram-desktop}/bin/telegram-desktop";
-        profile = "${pkgs.firejail}/etc/firejail/telegram-desktop.profile";
-        extraArgs = [ "--whitelist=~/Downloads" ];
-      };
-    };
   };
 
   # Firewall
